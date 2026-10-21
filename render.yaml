@@ -1,0 +1,16 @@
+# Deploy as one long-running Node.js web service.
+# In-memory rooms require exactly one instance. Free is intended for demonstrations.
+services:
+  - type: web
+    name: four-crowns-online
+    runtime: node
+    plan: free
+    buildCommand: npm install --no-audit --no-fund
+    startCommand: npm start
+    healthCheckPath: /api/health
+    autoDeployTrigger: commit
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: HOST
+        value: 0.0.0.0

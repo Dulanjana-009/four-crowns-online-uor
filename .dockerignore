@@ -1,0 +1,5 @@
+test
+*.png
+preview*.html
+preview*.js
+.git
